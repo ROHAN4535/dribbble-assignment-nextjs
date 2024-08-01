@@ -1,33 +1,30 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
+@import 'tailwindcss/tailwind.css';
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  font-family: 'Arial', sans-serif;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@keyframes colorChange {
+  0% { background-color: #ec4899; }  /* Pink */
+  25% { background-color: #f97316; } /* Orange */
+  50% { background-color: #22c55e; } /* Green */
+  75% { background-color: #3b82f6; } /* Blue */
+  100% { background-color: #ec4899; } /* Back to Pink */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }
+
+.animate-scroll {
+  display: flex;
+  width: calc(20 * 250px); 
+  animation: scroll 60s linear infinite; 
+}
+
+
